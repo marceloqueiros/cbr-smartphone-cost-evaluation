@@ -1,0 +1,146 @@
+﻿@model IEnumerable<Modulo2IA_CBR_Telemoveis.Models.Telemovel>
+
+@{
+    ViewBag.Title = "ListarCasos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4 style="text-shadow:initial">Administrador</h4>
+@Html.ActionLink("Novo Caso", "AdicionarCaso")
+<h2>Base de Casos</h2>
+
+@if (TempData["Caso_Editado"] != null)
+{
+    <p style="font-weight: bold; color:green;">@TempData["Caso_Editado"]</p>
+}
+
+@if (TempData["Caso_Eliminado"] != null)
+{
+    <p style="font-weight: bold; color:green;">@TempData["Caso_Eliminado"]</p>
+}
+
+@if (TempData["Caso_Não_Eliminado"] != null)
+{
+    <p style="font-weight: bold; color:red;">@TempData["Caso_Não_Eliminado"]</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Marca")
+        </th>
+        <th>
+            @Html.DisplayName("Bateria (mAh)")
+        </th>
+        <th>
+            @Html.DisplayName("RAM (GB)")
+        </th>
+        <th>
+            @Html.DisplayName("Memória Interna (GB)")
+        </th>
+        <th>
+            @Html.DisplayName("Tamanho Ecra (Polegadas)")
+        </th>
+       
+        <th>
+            @Html.DisplayName("Resolução Ecra")
+        </th>
+        <th>
+            @Html.DisplayName("Velocidade Processador (GHz)")
+        </th>
+        <th>
+           @Html.DisplayName("Núcleos Processador")
+        </th>
+        <th>
+            @Html.DisplayName("Camera Frontal (MP)")
+        </th>
+        <th>
+            @Html.DisplayName("Camera traseira (MP)")
+        </th>
+        <th>
+            @Html.DisplayName("Estado")
+        </th>
+        <th>
+            @Html.DisplayName("Idade (Meses)")
+        </th>
+        <th>
+            @Html.DisplayName("Valor Final (Euros)")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca.nome)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.mAhBateria)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.ram)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.memoriaInterna)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Ecra.tamanho)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Ecra.ResoluçãoEcra.designação)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Processador.velocidadeProcessador)
+        </td>
+
+
+        <td
+            >
+            @Html.DisplayFor(modelItem => item.Processador.nucleosProcessador)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Camera.resolucaoFrontal)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Camera.resolucaoTraseira)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado.designação)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.idade)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.valorFinal)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditarCaso", new { id=item.idTelemovel })
+            @Html.ActionLink("Eliminar", "EliminarCaso", new { id=item.idTelemovel })
+        </td>
+    </tr>
+}
+
+</table>

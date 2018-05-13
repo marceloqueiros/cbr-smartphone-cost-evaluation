@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12" name="DataClassesCBR">
+  <DataContextMoniker Name="/DataClassesCBRDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f610a143-03bf-4086-a19f-c5cd79eecd01" absoluteBounds="3.5, 8.25, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DataClassesCBRDataContext/Camera" />
+      <nestedChildShapes>
+        <elementListCompartment Id="831d3cd3-a4bd-42c6-9a1a-cf5d54ab7cae" absoluteBounds="3.515, 8.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea9d0029-9c5d-4f71-81ee-90f47e660bcb" absoluteBounds="3.5, 1.75, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/DataClassesCBRDataContext/Ecra" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46148b66-3d9a-401a-b78f-7bb6f8980109" absoluteBounds="3.515, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca8def79-d66a-472d-b513-b6d4f2522981" absoluteBounds="3.5, 4.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DataClassesCBRDataContext/Estado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="925fb6f1-ddd4-42c0-bab7-9aa802a0ba21" absoluteBounds="3.515, 4.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="63acb946-c84c-4925-b799-fdc7cac4911c" absoluteBounds="3.5, 10.375, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DataClassesCBRDataContext/Processador" />
+      <nestedChildShapes>
+        <elementListCompartment Id="382da901-a3a1-4896-95bd-35b86be8c7ce" absoluteBounds="3.515, 10.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e9e06176-12de-4f85-b0bb-7752ac007b38" absoluteBounds="3.5, 6.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DataClassesCBRDataContext/marca" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ed9ea185-4c0b-4864-9baa-c83ee99e4017" absoluteBounds="3.515, 6.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="527b69db-4295-4661-9868-40e6361e642c" absoluteBounds="0.75, 1.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DataClassesCBRDataContext/ResoluçãoEcra" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa68a43c-ae8c-4e85-84c4-9a5e8c427c1b" absoluteBounds="0.765, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="86f8ddee-404c-486e-a2d1-35d9890e4512" absoluteBounds="6.25, 1, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/DataClassesCBRDataContext/Telemovel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4661fdf4-cf4b-4bd2-8266-ca71d0a7afe6" absoluteBounds="6.265, 1.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.47199625651042); (3.5 : 2.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesCBRDataContext/ResoluçãoEcra/ResoluçãoEcra_Ecra" />
+      <nodes>
+        <classShapeMoniker Id="527b69db-4295-4661-9868-40e6361e642c" />
+        <classShapeMoniker Id="ea9d0029-9c5d-4f71-81ee-90f47e660bcb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.94314697265625); (6.36978791666667 : 8.94314697265625 : JumpStart); (6.53645458333333 : 8.94314697265625 : JumpEnd); (7.25 : 8.94314697265625); (7.25 : 3.92470540364583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesCBRDataContext/Camera/Camera_Telemovel" />
+      <nodes>
+        <classShapeMoniker Id="f610a143-03bf-4086-a19f-c5cd79eecd01" />
+        <classShapeMoniker Id="86f8ddee-404c-486e-a2d1-35d9890e4512" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.44314697265625); (6.25 : 2.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesCBRDataContext/Ecra/Ecra_Telemovel" />
+      <nodes>
+        <classShapeMoniker Id="ea9d0029-9c5d-4f71-81ee-90f47e660bcb" />
+        <classShapeMoniker Id="86f8ddee-404c-486e-a2d1-35d9890e4512" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.97199625651042); (6.36978791666667 : 4.97199625651042 : JumpStart); (6.53645458333333 : 4.97199625651042 : JumpEnd); (6.7187475 : 4.97199625651042); (6.7187475 : 3.92470540364583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesCBRDataContext/Estado/Estado_Telemovel" />
+      <nodes>
+        <classShapeMoniker Id="ca8def79-d66a-472d-b513-b6d4f2522981" />
+        <classShapeMoniker Id="86f8ddee-404c-486e-a2d1-35d9890e4512" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.97199625651042); (6.36978791666667 : 6.97199625651042 : JumpStart); (6.53645458333333 : 6.97199625651042 : JumpEnd); (7.16666666666667 : 6.97199625651042 : JumpStart); (7.33333333333333 : 6.97199625651042 : JumpEnd); (7.7812525 : 6.97199625651042); (7.7812525 : 3.92470540364583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesCBRDataContext/marca/marca_Telemovel" />
+      <nodes>
+        <classShapeMoniker Id="e9e06176-12de-4f85-b0bb-7752ac007b38" />
+        <classShapeMoniker Id="86f8ddee-404c-486e-a2d1-35d9890e4512" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 11.0681469726562); (6.45312125 : 11.0681469726562); (6.45312125 : 3.92470540364583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesCBRDataContext/Processador/Processador_Telemovel" />
+      <nodes>
+        <classShapeMoniker Id="63acb946-c84c-4925-b799-fdc7cac4911c" />
+        <classShapeMoniker Id="86f8ddee-404c-486e-a2d1-35d9890e4512" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

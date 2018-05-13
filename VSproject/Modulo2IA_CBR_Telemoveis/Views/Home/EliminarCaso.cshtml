@@ -1,0 +1,123 @@
+﻿@model Modulo2IA_CBR_Telemoveis.Models.Telemovel
+
+@{
+    ViewBag.Title = "EliminarCaso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4 style="text-shadow:initial">Administrador</h4>
+
+<h3>Tem a certeza que quer apagar este telemóvel da Base de Casos?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Marca")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Bateria (mAh)")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.mAhBateria)
+        </dd> 
+        <dt>
+            @Html.DisplayName("RAM (GB)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ram)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Memória Interna (GB)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memoriaInterna)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tamanho")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ecra.tamanho)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Resolução Ecra")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ecra.ResoluçãoEcra.designação)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Velocidade (GHz)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Processador.velocidadeProcessador)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Núcleos Processador")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Processador.nucleosProcessador)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Camera Frontal (MP)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Camera.resolucaoFrontal)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Camera traseira (MP)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Camera.resolucaoTraseira)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Estado")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado.designação)
+        </dd>
+        <dt>
+            @Html.DisplayName("Idade (Meses)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idade)
+        </dd>
+        <dt>
+            @Html.DisplayName("Valor Final (Euros)")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorFinal)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+            <br/>
+            @Html.ActionLink("Base de Casos", "ListarCasos")
+        </div>
+    }
+</div>

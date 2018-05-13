@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CBRTelemoveis" Class="DataClassesCBRDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=marcelo;Initial Catalog=CBRTelemoveis;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CBRTelemoveisConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cameras" Member="Cameras">
+    <Type Name="Camera">
+      <Column Name="idCameras" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="resolucaoFrontal" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="resolucaoTraseira" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Camera_Telemovel" Member="Telemovels" ThisKey="idCameras" OtherKey="idCameras" Type="Telemovel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ecra" Member="Ecras">
+    <Type Name="Ecra">
+      <Column Name="idEcra" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tamanho" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="idResoluçãoEcra" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Ecra_Telemovel" Member="Telemovels" ThisKey="idEcra" OtherKey="idEcra" Type="Telemovel" />
+      <Association Name="ResoluçãoEcra_Ecra" Member="ResoluçãoEcra" ThisKey="idResoluçãoEcra" OtherKey="idResoluçãoEcra" Type="ResoluçãoEcra" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estado" Member="Estados">
+    <Type Name="Estado">
+      <Column Name="idEstado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="designação" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Estado_Telemovel" Member="Telemovels" ThisKey="idEstado" OtherKey="idEstado" Type="Telemovel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Processador" Member="Processadors">
+    <Type Name="Processador">
+      <Column Name="idProcessador" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="velocidadeProcessador" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="nucleosProcessador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Processador_Telemovel" Member="Telemovels" ThisKey="idProcessador" OtherKey="idProcessador" Type="Telemovel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.marca" Member="marcas">
+    <Type Name="marca">
+      <Column Name="idMarca" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="marca_Telemovel" Member="Telemovels" ThisKey="idMarca" OtherKey="idMarca" Type="Telemovel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ResoluçãoEcra" Member="ResoluçãoEcras">
+    <Type Name="ResoluçãoEcra">
+      <Column Name="idResoluçãoEcra" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="designação" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="ResoluçãoEcra_Ecra" Member="Ecras" ThisKey="idResoluçãoEcra" OtherKey="idResoluçãoEcra" Type="Ecra" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Telemovel" Member="Telemovels">
+    <Type Name="Telemovel">
+      <Column Name="idTelemovel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ram" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="memoriaInterna" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="mAhBateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="valorFinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEcra" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idProcessador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCameras" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idMarca" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Camera_Telemovel" Member="Camera" ThisKey="idCameras" OtherKey="idCameras" Type="Camera" IsForeignKey="true" />
+      <Association Name="Ecra_Telemovel" Member="Ecra" ThisKey="idEcra" OtherKey="idEcra" Type="Ecra" IsForeignKey="true" />
+      <Association Name="Estado_Telemovel" Member="Estado" ThisKey="idEstado" OtherKey="idEstado" Type="Estado" IsForeignKey="true" />
+      <Association Name="marca_Telemovel" Member="marca" ThisKey="idMarca" OtherKey="idMarca" Type="marca" IsForeignKey="true" />
+      <Association Name="Processador_Telemovel" Member="Processador" ThisKey="idProcessador" OtherKey="idProcessador" Type="Processador" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

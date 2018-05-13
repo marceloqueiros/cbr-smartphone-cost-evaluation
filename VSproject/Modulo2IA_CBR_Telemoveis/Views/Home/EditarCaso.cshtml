@@ -1,0 +1,144 @@
+﻿@model Modulo2IA_CBR_Telemoveis.Models.Telemovel
+
+@{
+    ViewBag.Title = "EditarCaso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 style="text-shadow:initial">Administrador</h4>
+<h2 style="text-shadow:initial">Editar Caso:</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr class="btn-default" />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <h4>Marca</h4>
+        <div class="form-group">
+            <div class="col-md-offset-1">
+                @Html.DropDownListFor(model => model.idMarca, (SelectList)ViewBag.ListaMarcas, "Selecione a Marca do Modelo", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="col-md-12">
+                @Html.ValidationMessage("idMarca", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <hr />
+        <h4>Memória</h4>
+        <div class="form-group">
+            @Html.Label("RAM: (Gigabytes)", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ram, new { @type = "number", min = "0.1", step = "0.1" })
+                @Html.ValidationMessage("ram", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Interna: (Gigabytes)", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.memoriaInterna, new { @type = "number", min = "1" })
+                @Html.ValidationMessage("memoriaInterna", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <hr />
+        <h4>Ecrã</h4>
+        <div class="form-group">
+            @Html.Label("Resolução:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Ecra.idResoluçãoEcra, (SelectList)ViewBag.ListaRes, "Selecione a resolução do modelo", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessage("Ecra.idResoluçãoEcra", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Tamanho: (Polegadas)", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ecra.tamanho, new { @type = "number", min = "0.1", step = "0.1" })
+                @Html.ValidationMessage("Ecra.tamanho", "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <h4>Processador</h4>
+        <div class="form-group">
+            @Html.Label("Velocidade: (GHz)", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Processador.velocidadeProcessador, new { @type = "number", min = "0.1", step = "0.1" })
+                @Html.ValidationMessage("velocidade", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Número de Núcleos:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Processador.nucleosProcessador, new { @type = "number", min = "1" })
+                @Html.ValidationMessage("nucleos", "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <h4>Cameras</h4>
+        <div class="form-group">
+            @Html.Label("Frontal: (Megapixels)", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Camera.resolucaoFrontal, new { @type = "number", min = "0.1", step = "0.1" })
+                @Html.ValidationMessage("frontal", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Traseira: (Megapixels)", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Camera.resolucaoTraseira, new { @type = "number", min = "0.1", step = "0.1" })
+                @Html.ValidationMessage("traseira", "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <h4>Bateria</h4>
+        <div class="form-group">
+            @Html.Label("Potência (mAh):", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mAhBateria, new { @type = "number", min = "1" })
+                @Html.ValidationMessage("bateria", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <hr />
+        <h4>Em que estado se encontra o seu telemóvel?</h4>
+        <div class="form-group">
+            <div class="col-md-10">
+                <br />
+                @Html.DropDownListFor(model => model.idEstado, (SelectList)ViewBag.ListaEstados, "Selecione a estado do telemóvel", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessage("estado", "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <h4>Quantos meses tem o telemóvel?</h4>
+        <div class="form-group">
+            <div class="col-md-10">
+                <br />
+                @Html.EditorFor(model => model.idade, new { @type = "number", min = "0"})
+                @Html.ValidationMessage("idade", "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <h4>Quanto vale este telemóvel? (Euros)</h4>
+        <div class="form-group">
+            <div class="col-md-10">
+                <br />
+                @Html.EditorFor(model => model.valorFinal, new { @type = "number", min = "0"})
+                @Html.ValidationMessage("valor", "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-0 col-md-10">
+                <input type="submit" value="Editar Caso" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

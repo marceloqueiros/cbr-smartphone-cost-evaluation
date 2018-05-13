@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+   
+    <style>
+        textarea::-webkit-input-placeholder {  color: #999;}
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Avaliação">Avaliação de Telemóveis Usados</a>
+                <ul class="nav navbar-nav ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Avaliação">Página Inicial<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contactos">Contactos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr class="btn-default"/>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Marcelo Pinto - Inteligência Artifical
+                   <img src="~/Content/utad_logo.jpg" /></p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+  
+</body>
+</html>
